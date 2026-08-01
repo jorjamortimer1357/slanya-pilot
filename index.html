@@ -150,10 +150,10 @@
 
 <script>
   // ---- CONFIG: fill these in ----
-  const BASE_ID = "YOUR_BASE_ID";              // e.g. app1234567890abcd
-  const TOKEN = "YOUR_PERSONAL_ACCESS_TOKEN";  // Airtable personal access token
+  const BASE_ID = "appFDgA6Q9wliTuI6";
+  const TOKEN = "patZyojCwm5tKAOWp";
   const TABLE_NAME = "Alerts";
-  const VENUE_NAME = "Test Venue";             // set per venue for now
+  const VENUE_NAME = "Main Hall";               // must match an existing Venue option in Airtable
 
   // Location comes from the URL, e.g. index.html?loc=Cubicle%201
   const params = new URLSearchParams(window.location.search);
@@ -185,7 +185,7 @@
         "Alert Type": selectedType,
         "Status": "New"
       };
-      if (note) fields["Notes"] = note;
+      if (note) fields["Patron Note"] = note;
 
       const response = await fetch(`https://api.airtable.com/v0/${BASE_ID}/${encodeURIComponent(TABLE_NAME)}`, {
         method: "POST",
